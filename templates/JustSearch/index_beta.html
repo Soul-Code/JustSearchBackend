@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, minimum-scale=1.0;">
+    <meta name="theme-color" content="#424242">
+    <title>Just搜搜信息检索能力大赛Beta</title>
+    <link rel="stylesheet" href="/static/JustSearch/icons.css">
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?fb8bce4e61493cb2602b43fe306ae8c7";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+</head>
+
+<body
+        style='padding-top: 4rem;font-family:"Microsoft YaHei",微软雅黑,"MicrosoftJhengHei",华文细黑,STHeiti,MingLiu,serif; background-color: #eeeeee'>
+{% csrf_token %}
+
+<div id="app">
+    {#    <h1> 正在加载。。。。。请稍候。。。</h1>#}
+    <div style="text-align: center;padding-top: 30px">
+        <img src="/static/JustSearch/loading.gif" alt="正在加载。。。">
+        <h4>Beta加载中......</h4>
+    </div>
+</div>
+
+
+<script>
+    const debug = true;
+    var isLogin = true;
+    localStorage.setItem("msg", "{{ msg }}");
+
+    var msg;
+    {% if msg %}
+        msg = true;
+    {% else %}
+        msg = false;
+    {% endif %}
+    var userInfo = {
+        id: 1,
+        name: "null",
+        qq: "null",
+        tel: "null",
+        score: 0,
+        team: {
+            id: 1,
+            name: "null",
+            score: 101,
+            leader: "null",
+            mems: [{id: 2, name: "null"}, {id: 1, name: "null"}]
+        }
+    };
+</script>
+<script src="/static/JustSearch/build_beta.js"></script>
+
+</body>
+
+</html>
+
